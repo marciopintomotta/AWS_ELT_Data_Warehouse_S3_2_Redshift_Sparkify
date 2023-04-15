@@ -7,7 +7,6 @@
 3. [Setup](#Installation)
 4. [Steps/File Descriptions](#File-Descriptions)
 
-
 ## Project Description 
 
 A music streaming startup, Sparkify, has grown their user base and song database and want to move their processes and data onto the cloud. 
