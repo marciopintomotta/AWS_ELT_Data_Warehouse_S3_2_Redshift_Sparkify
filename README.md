@@ -20,6 +20,7 @@ My goal was building an ELT pipeline that, extracts (E) their data from S3, stag
 for allow the analytics team to continue finding insights into what songs their users are listening to.
 
 ![alt text](Sparkify_S3_to_Redshift ELT.png "Title")
+
 <img src="Sparkify_S3_to_Redshift_ELT"/>
 
 ## Setup / Requirements
