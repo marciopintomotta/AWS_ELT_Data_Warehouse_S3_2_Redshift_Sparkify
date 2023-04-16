@@ -5,6 +5,16 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
+
+    ''' 
+        drop all data warehouse tables.
+        
+        Args:
+            cur : cursor for current sql connection
+            conn : a psycopg2 db connection
+    '''
+
+
     print('drop table has started.')
     for query in drop_table_queries:
         cur.execute(query)
@@ -13,6 +23,15 @@ def drop_tables(cur, conn):
 
 
 def create_tables(cur, conn):
+
+    ''' 
+        create all data warehouse tables.
+
+        Args:
+            cur : cursor for current sql connection
+            conn : a psycopg2 db connection
+    '''
+
     print('create table has started.')
     for query in create_table_queries:
         cur.execute(query)
@@ -21,6 +40,14 @@ def create_tables(cur, conn):
 
 
 def main():
+
+    '''
+    
+        Connects to Redshift database to drop and create stages, fact and dimensional tables.
+        
+    '''
+
+
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 

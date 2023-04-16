@@ -4,6 +4,16 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
+
+    ''' 
+        Load data from S3 into staging tables in the data warehouse.
+
+        Args:
+            cur : cursor for current sql connection
+            conn : a psycopg2 db connection
+
+    '''
+
     print('loading of data to the stage area has started.')
 
     for query in copy_table_queries:
@@ -14,6 +24,16 @@ def load_staging_tables(cur, conn):
 
 
 def insert_tables(cur, conn):
+
+    ''' 
+        loading of data from stage to the fact and dim tables in the data warehouse.
+
+        Args:
+            cur : cursor for current sql connection
+            conn : a psycopg2 db connection
+    '''
+
+
     print('loading of data from stage to the fact and dim tables has started.')
     
     for query in insert_table_queries:
@@ -24,6 +44,15 @@ def insert_tables(cur, conn):
 
 
 def main():
+
+    '''
+        
+        Connects to Redshift database and loads data from S3
+        and further transforms it into fact and dimensional tables.
+    
+        
+    '''
+
     config = configparser.ConfigParser()
     config.read('dwh.cfg')
 

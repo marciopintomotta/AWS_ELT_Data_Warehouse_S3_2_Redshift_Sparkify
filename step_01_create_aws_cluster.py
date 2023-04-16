@@ -134,60 +134,14 @@ def create_aws_cluster(ec2, iam, redshift):
     print(" -------------------------------------------------------------------")
     print('')
 
-def create_aws_cluster_direct():
-
-    redshift = boto3.client('redshift',
-                       region_name="us-west-2",
-                       aws_access_key_id=KEY,
-                       aws_secret_access_key=SECRET
-                       )
-
-    iam = boto3.client('iam',aws_access_key_id=KEY,
-                        aws_secret_access_key=SECRET,
-                        region_name='us-west-2'
-                    )
-
-    roleArn = iam.get_role(RoleName='dwhRole')['Role']['Arn']
-
-    try:
-        response = redshift.create_cluster(      
-
-
-            ClusterType=DWH_CLUSTER_TYPE,
-            NodeType=DWH_NODE_TYPE,
-            NumberOfNodes=int(DWH_NUM_NODES),
-            #Identifiers & Credentials
-            DBName=DWH_DB,
-            ClusterIdentifier=DWH_CLUSTER_IDENTIFIER,
-            MasterUsername=DWH_DB_USER,
-            MasterUserPassword=DWH_DB_PASSWORD,
-            #Roles (for s3 access)
-            IamRoles=[roleArn]  
-        )
-    except Exception as e:
-        print(e)
-
-    print("the cluster is being created... please wait!")
-    while True:
-        response = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)
-        cluster_info = response['Clusters'][0]
-        if cluster_info['ClusterStatus'] == 'available':
-            print("The cluster has been created and is now available for use!!")
-            break
-        time.sleep(10)
-
-    myClusterProps = redshift.describe_clusters(ClusterIdentifier=DWH_CLUSTER_IDENTIFIER)['Clusters'][0]
-    
-    print('')
-    print(" ---------------------  Update dwh.cfg  ---------------------------")
-    print(" --- don't forget to update the config file with this information --")
-    print("DWH_ENDPOINT:  {}".format(myClusterProps['Endpoint']['Address']))
-    print("DWH_ROLE_ARN:  {}".format(myClusterProps['IamRoles'][0]['IamRoleArn']))
-    print(" -------------------------------------------------------------------")
-    print('')
-
 
 def main():
+
+    '''
+    
+        Creates the cluster environment.
+        
+    '''
 
     ec2, iam, redshift = create_aws_clients_resources()
     create_aws_cluster(ec2, iam, redshift)

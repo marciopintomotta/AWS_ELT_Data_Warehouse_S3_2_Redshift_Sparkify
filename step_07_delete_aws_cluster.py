@@ -67,6 +67,11 @@ def delete_aws_cluster(redshift):
 
 def main():
 
+    """
+        Delete the cluster environment in the AWS .
+
+    """
+
     redshift, iam = create_connection_aws_cluster()
     delete_aws_iam_role(iam)
     delete_aws_cluster(redshift)
