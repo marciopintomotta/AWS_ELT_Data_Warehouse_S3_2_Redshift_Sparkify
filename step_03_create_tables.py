@@ -33,11 +33,6 @@ def main():
     conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(DWH_ENDPOINT, DWH_DB, DWH_DB_USER, DWH_DB_PASSWORD, DWH_PORT))
     cur = conn.cursor()
 
-    #uri = 'host={} dbname={} user={}' \
-    #      ' password={} port={}'.format(*config['CLUSTER'].values())
-    #conn = psycopg2.connect(uri)
-    #cur = conn.cursor()
-
     drop_tables(cur, conn)
     create_tables(cur, conn)
 
