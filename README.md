@@ -47,7 +47,7 @@ for allow the analytics team to continue finding insights into what songs their 
 4. Run the file step_03_create_tables to create the tables in AWS Redshift
 5. Run the file step_04_etl.py to load data from S3 to staging tables and then to fact and dimensional tables on AWS Redshift
 6. Run the file step_05_etl_result.py to view an Example Output from the fact and dimensional tables on AWS Redshift
-7. step_06_query_aws_cluster.ipynb to query the Redshift Cluster on AWS
+7. Run the file step_06_query_aws_cluster.ipynb to query the Redshift Cluster on AWS
 8. Run the file step_06_delete_aws_cluster.py to delete the Redshift Cluster on AWS
 
 ## Project Structure
