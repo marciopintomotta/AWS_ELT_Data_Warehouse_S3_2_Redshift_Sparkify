@@ -14,13 +14,16 @@ A music streaming startup, Sparkify, has grown their user base and song database
 Their data resides in S3, in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
 
-![Alt text](https://github.com/marciopintomotta/AWS_ELT_Data_Warehouse_S3_2_Redshift_Sparkify/blob/master/Sparkify_S3_to_Redshift_ELT.png "a title")
+![Alt text](https://github.com/marciopintomotta/AWS_ELT_Data_Warehouse_S3_2_Redshift_Sparkify/blob/master/Sparkify_S3_to_Redshift_ELT.png "a Redshift ELT")
 
 
 ## Project Motivation
 
 My goal was building an ELT pipeline that, extracts (E) their data from S3, stages (L) them in Redshift, and transforms (T) data into a set of dimensional tables 
 for allow the analytics team to continue finding insights into what songs their users are listening to.
+
+
+![Alt text](https://github.com/marciopintomotta/AWS_ELT_Data_Warehouse_S3_2_Redshift_Sparkify/blob/master/star.png " Star")
 
 ## Setup / Requirements
 
