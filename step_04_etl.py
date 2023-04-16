@@ -33,9 +33,7 @@ def main():
     DWH_DB_PASSWORD         = config.get("DWH","DWH_DB_PASSWORD")
     DWH_PORT                = config.get("DWH","DWH_PORT")
 
-    #conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(*config['CLUSTER'].values()))
-    #cur = conn.cursor()
-
+   
     conn = psycopg2.connect("host={} dbname={} user={} password={} port={}".format(DWH_ENDPOINT, DWH_DB, DWH_DB_USER, DWH_DB_PASSWORD, DWH_PORT))
     cur = conn.cursor()
     
